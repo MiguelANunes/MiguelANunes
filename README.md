@@ -4,7 +4,7 @@ I'm a logician and computer scientist who dabbles in philosophy, mainly philosop
 
 Currently I'm pursuing a Master's Degree in Philosophy at the Institute of Philosophy and Human Sciences of Unicamp, though I spend most of my time at the Center of Logic, Epistemology and History of Science.
 
-I do a lot of stuff with LaTeX, mostly bodges, some stuff with proof assistants (mostly Coq) and little stuff with code.
+I do a lot of stuff with LaTeX, mostly bodges, some stuff with proof assistants, mostly Coq, and little stuff with code, mostly Python and Shell Scripts.
 
 <!--
 **MiguelANunes/MiguelANunes** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
