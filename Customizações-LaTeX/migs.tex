@@ -1,0 +1,233 @@
+% migs.tex: Arquivo que junta todas as coisas (definições, alias, comandos, etc.) de tex sortidas que são úteis para mim 
+% Criação: 2024-02-29
+% Última Modificação: 2024-11-25
+%                     Estendendo o citeshort para poder listar a página do trabalho citado
+
+%% Imagens %%
+
+% Define o caminho (relativo ao arquivo que está sendo compilado) onde o compilador de LaTex vai buscar os arquivos incluídos com o comando \includegraphics
+% Assim, não é necessário incluir o caminho no nome do arquivo passado para o comando
+% Para usar, descomente e preencha o caminho onde estão as figuras
+	%\graphicspath{{Figuras/}}
+
+%% Citações e Referências %%
+	
+	% Forma rápida de referenciar definições/equações/etc. da forma X.Y.Z
+	% Exemplo de uso: "[...] como visto na Definição~\SubCaso{caso:Definicao1-2}{caso:Definicao1-2-4} [...]"
+	% Isso gera o texto: "[...] como visto na Definição 8.1.(iv)) [...]" (Ou seja, o terceiro subcaso do primeiro caso da definição 8)
+	% Para isso ser usado efetivamente, tanto o ambiente mais externo tem que conter um \label, quanto o ambiente interno e o ambiente mais interno
+	% Exemplo:
+		% \begin{definicao}[Exemplo]
+		%     \label{def:Definicao1}
+		%     \begin{enumerate}[label=\textnormal{\ref{def:Definicao1}.\arabic*}]
+		%         \item A \label{caso:Definicao1-1}
+		%         \item B \label{caso:Definicao1-2}
+		%         \begin{enumerate}
+		%             \item B.1
+		%             \item B.2
+		%             \item B.3 \label{caso:Definicao1-2-3}
+		%             \item B.4 \label{caso:Definicao1-2-4}
+		%         \end{enumerate}
+		%     \end{enumerate}
+		% \end{definicao}
+	\newcommand{\SubCaso}[2]{\ref{#1}.\ref{#2}}
+	% (Para trecho das forma X.Y, basta usar \ref)
+
+	% Maneira fácil de fazer citações da forma Autor (Ano)
+	% Os comandos citeauthoronline e citeyear são do pacote ABNTeX, mas isso é uma citação em formato ABNT, então não deveria ocorrer problema
+	\newcommand{\citeshort}[2][]{%
+		\if\relax\detokenize{#1}\relax%
+			% Caso não tenha passado argumento
+			\citeauthoronline{#2} (\citeyear{#2})%
+		\else%
+			% Caso tenha passado argumento
+			\citeauthoronline{#2} (\citeyear{#2}, #1)%
+		\fi%
+	}
+
+	% Uma maneira rápida de inserir a legenda de uma figura elaborada pelo autor
+	% Modificar concordância de gênero quando for necessário
+	\newcommand{\me}{Elaborado pelo autor.}
+
+%% Pacotes %%
+
+	% Corrigindo mudança na fonte caligráfica causada pelo pacote bm
+	
+	% Está comentado pois nem sempre precisarei dele
+	% \usepackage{bm} % Negrito em fonte matemática
+	% O pacote bm torna a fonte do mathcal feia, a linha abaixo desfaz isso
+	\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+	% Definindo fonte caligráfica e negrita
+	\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+
+	%%% Estilos de Teoremas 
+
+	% Pacotes necessários para formatação de teoremas
+	\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+	% Pacote necessário para o comando \xspace
+	% Esse comando insere um espaço apenas caso seja necessário, se não for, não insere nada
+	\usepackage{xspace}
+
+	% TODO: Adicionar um símbolo especial para demarcar o fim de definições
+
+	% Estilo padrão, i.e., texto itálico
+	\newtheorem{teorema}       {Teorema}
+	\newtheorem*{teorema*}     {Teorema}
+	% Numeração customizada para teoremas
+	\newtheorem{innercustomthm}{Teorema}
+	\newenvironment{customthm}[1]
+	{\renewcommand\theinnercustomthm{#1}\innercustomthm}
+	{\endinnercustomthm}
+
+	\newtheorem{proposicao}  {Proposição}
+	\newtheorem*{proposicao*}{Proposição}
+
+	\newtheorem{lema}            {Lema}
+	\newtheorem*{lema*}          {Lema}
+	% Numeração customizada para lemas
+	\newtheorem{innercustomlemma}{Lema}
+	\newenvironment{customlemma}[1]
+	{\renewcommand\theinnercustomlemma{#1}\innercustomlemma}
+	{\endinnercustomlemma}
+
+	\newtheorem{corolario}           {Corolário}
+	\newtheorem*{corolario*}         {Corolário}
+	% Numeração customizada para corolários
+	\newtheorem{innercustomcorollary}{Corolário}
+	\newenvironment{customcorollary}[1]
+	{\renewcommand\theinnercustomcorollary{#1}\innercustomcorollary}
+	{\endinnercustomcorollary}
+
+	\renewcommand{\proofname}{Prova}
+	\renewcommand{\qedsymbol}{$\blacksquare$}
+
+	% Estilo simples, i.e., texto normal
+	\theoremstyle{definition}
+	\newtheorem{definicao}  {Definição}
+	\newtheorem*{definicao*}{Definição}
+
+	\newtheorem{exemplo}    {Exemplo}
+	\newtheorem*{exemplo*}  {Exemplo}
+
+	% Forçando o \qed a ser inserido no final de teoremas e proposições
+	% Essa inserção é feita pelo próprio compilador, logo pode não ficar no melhor lugar possível
+	% Por exemplo, usualmente é inserida uma nova linha para colocar o símbolo de QED, ao invés de ser feito inline na última linha da prova
+	% Portanto, é possível que uma página inteira seja dedicada apenas ao símbolo de QED
+	\AtEndEnvironment{teorema}   {\qed}%
+	\AtEndEnvironment{proposicao}{\qed}%
+
+	% Trecho relevante da documentação:
+		% A blank line preceding \end{proof} (or before an explicit \qed) disables
+		% the mechanism that places the QED symbol, and may even allow that symbol
+		% to be set at the top of a new page.
+		% Placement of the QED symbol can be problematic if the last part of a proof
+		% environment is a displayed equation or list environment or something of that
+		% nature. In that case put a \qedhere command at the place where the QED
+		% symbol should appear
+
+	%%% Símbolos Matemáticos
+
+		% Mudando o símbolo do conjunto vazio para um círculo com um traço ao invés de uma oval com um traço
+		\let \emptyset \varnothing
+
+		% Definindo um jeito mais fácil de inserir uma flecha com duas cabeças
+		\newcommand{\tofrom}{\leftrightarrow}
+
+		% Definindo uma forma de escrever um = com o termo "def" acima dele
+		\newcommand{\eqdef}{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+
+		% Definindo uma forma rápida de escrever os símbolos de consequência inline, sem ter que abrir modo matemático
+		\newcommand{\VVDASH}{\(\Vdash\)\xspace}
+		\newcommand{\VDDASH}{\(\vDash\)\xspace}
+		\newcommand{\VDASH} {\(\vdash\)\xspace}
+
+		% Igualmente para os símbolos que são um círculo com algum outro símbolo dentro
+		\newcommand{\ODOT}  {\(\odot\)\xspace}
+		\newcommand{\OPLUS} {\(\oplus\)\xspace}
+		\newcommand{\OTIMES}{\(\otimes\)\xspace}
+		\newcommand{\OMINUS}{\(\ominus\)\xspace}
+
+		% Definindo um comando para escrever os símbolos mencionados acima com o espaçamento de uma operação binária em modo matemático
+		% Ou seja, eles terão o mesmo espaçamento antes e depois que um símbolo como +, ao invés do mesmo espaçamento que uma letra grega
+		\newcommand{\Odot}  {\mathbin{\odot}}
+		\newcommand{\Oplus} {\mathbin{\oplus}}
+		\newcommand{\Otimes}{\mathbin{\otimes}}
+
+		%%%% Símbolos Modais
+
+			% Maneira rápida de inserir uma caixa ou diamante no texto, sem precisar abrir o modo matemático
+			\newcommand{\BOX}{\(\Box\)\xspace}
+			\newcommand{\DIA}{\(\Diamond\)\xspace}
+			
+			% Maneira rápida de inserir uma caixa ou diamante com subscrito
+			\newcommand{\BOXi}[1]{\(\Box_{#1}\)\xspace}
+			\newcommand{\DIAi}[1]{\(\Diamond_{#1}\)\xspace}
+
+
+	%%% Grego
+		% Renomeando o comando \phi para usar a variante bonita do phi, ao invés do padrão que acho muito feio
+		\newcommand{\uglyphi}{\phi}    % Esse comando vai escrever o símbolo antigo
+		\renewcommand{\phi}  {\varphi} % Renomeando o comando original
+
+		% Igualmente para o épsilon
+		\newcommand{\uglyepsilon}{\epsilon}
+		\renewcommand{\epsilon}  {\varepsilon}
+
+		% Comandos para rapidamente inserir letras gregas dentro do texto sem ter que manualmente abrir o modo matemático
+
+		%%%% Grego Minúsculo
+			\newcommand{\ALPHA} {\(\alpha\)\xspace}
+			\newcommand{\BETA}  {\(\beta\)\xspace}
+			\newcommand{\DELTA} {\(\delta\)\xspace}
+			\newcommand{\GAMMA} {\(\gamma\)\xspace}
+			\newcommand{\PHI}   {\(\phi\)\xspace}
+			\newcommand{\PSI}   {\(\psi\)\xspace}
+			\newcommand{\PI}    {\(\pi\)\xspace}
+			\newcommand{\SIGMA} {\(\sigma\)\xspace}
+			\newcommand{\THETA} {\(\theta\)\xspace}
+			\newcommand{\LAMBDA}{\(\lambda\)\xspace}
+			% Coisas do TCC, vou deixar comentado pois pode ser útil no futuro
+			% \newcommand{\OPI}{\(\overline{\pi}\)\xspace}
+			% \newcommand{\mOPI}{\overline{\pi}\xspace}
+
+		%%%% Grego Maiúsculo
+			% Prefixo "U" para "Uppercase"
+			\newcommand{\UGAMMA} {\(\Gamma\)\xspace}
+			\newcommand{\UDELTA} {\(\Delta\)\xspace}
+			\newcommand{\USIGMA} {\(\Sigma\)\xspace}
+			\newcommand{\UTHETA} {\(\Theta\)\xspace}
+			\newcommand{\ULAMBDA}{\(\Lambda\)\xspace}
+			% Coisas do TCC, vou deixar comentado pois pode ser útil no futuro
+			% \newcommand{\LAMBDAlm}{\(\Lambda_{\mathsf{LM}}\)\xspace}
+			% \newcommand{\Lambdalm}{\Lambda_{\mathsf{LM}}}
+	
+	%%% Fontes Matemáticas
+
+		% Maneira rápida de inserir uma letra caligráfica/fraktur/estilo quadro negro no texto sem ter que abrir modo matemático
+		\newcommand{\Mathcal} [1]{\(\mathcal{#1}\)\xspace}
+		\newcommand{\Mathfrak}[1]{\(\mathfrak{#1}\)\xspace}
+		\newcommand{\Mathbb}  [1]{\(\mathbb{#1}\)\xspace}
+
+		% Igual acima, mas com um subscrito
+		\newcommand{\Mathcali} [2]{\(\mathcal{#1}_{#2}\)\xspace}
+		\newcommand{\Mathfraki}[2]{\(\mathfrak{#1}_{#2}\)\xspace}
+		\newcommand{\Mathbbi}  [2]{\(\mathbb{#1}_{#2}\)\xspace}
+		
+		% Igual acima, mas com um superscrito
+		\newcommand{\MathcalI} [2]{\(\mathcal{#1}^{#2}\)\xspace}
+		\newcommand{\MathfrakI}[2]{\(\mathfrak{#1}^{#2}\)\xspace}
+		\newcommand{\MathbbI}  [2]{\(\mathbb{#1}{#2}\)\xspace}
+
+		% Igual acima, mas com ambos
+		\newcommand{\MathcalIi} [3]{\(\mathcal{#1}^{#2}_{#3}\)\xspace}
+		\newcommand{\MathfrakIi}[3]{\(\mathfrak{#1}^{#2}_{#3}\)\xspace}
+		\newcommand{\MathbbIi}  [3]{\(\mathbb{#1}^{#2}_{#3}\)\xspace}
+
+%% Comentários %%
+	
+	% Estes comandos mudam a cor do texto fornecido como argumento e inserem uma palavra em negrito a frente para indicar que é um comentário e qual é seu propósito/quem é o autor
+	% A exceção é o comando \cortar que além disso torna o texto tachado
+	\newcommand{\migs}  [1]{\textcolor{violet}{\textbf{MIGUEL:} #1}}
+	\newcommand{\cortar}[1]{\textcolor{red}{\textbf{CORTAR:}\sout{#1}}}
+	\newcommand{\ignore}[1]{\textcolor{blue}{\textbf{IGNORE:} #1}}
+

@@ -1,0 +1,198 @@
+% Copyright 2009 by Pim Vullers
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+% TODO: Atualizar esse cabeçalho
+
+%%%
+%%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
+%%%
+
+% Layout scheme for outer elements: split header and footer
+\useoutertheme{split}
+
+% Color scheme for outer elements: use background colors
+\usecolortheme{whale}
+
+% Layout scheme for inner elements: rounded elements
+\useinnertheme{rounded} 
+
+% Color scheme for inner elements: use foreground colors
+\usecolortheme{orchid}
+
+
+%%%
+%%% Tweak definitions of inner theme to match personal preferences (MODIFY THESE)
+%%%
+
+% Itemize items: default (triangle), circle, square, ball
+\setbeamertemplate{itemize items}[circle]
+
+% Enumerate items: default, circle, square, ball
+\setbeamertemplate{enumerate items}[circle]
+
+% Outline: default, sections numbered, subsections numbered, circle, square, ball, ball unnumbered
+% \setbeamertemplate{section in toc}[circle]
+% \setbeamertemplate{subsection in toc}[ball]
+\setbeamertemplate{sections/subsections in toc}[ball] % TODO: Verificar no código fonte original desse pacote como são printados os números da seção dentro dos círculos
+
+% \setbeamertemplate{subsection in toc}{
+%     \leavevmode\leftskip=4ex%
+%     \usebeamerfont{subsection number projected}%
+%     \begin{beamercolorbox}[wd=1.5ex,ht=1.5ex,dp=0.3ex,center]{subsection number projected}%
+%       {\small \thesubsection}%
+%     \end{beamercolorbox}%
+%     \hskip1ex\inserttocsubsection\\
+% }
+
+% \setcounter{secnumdepth}{2}
+% \setcounter{tocdepth}{2}
+
+% \setbeamertemplate{section in toc}{%
+%   {\inserttocsectionnumber.}~\inserttocsection}
+% \setbeamercolor{subsection in toc}{bg=white,fg=structure}
+% \setbeamertemplate{subsection in toc}{%
+%   \hspace{1.2em}{\inserttocsectionnumber.\inserttocsubsectionnumber.}~\inserttocsubsection\par}
+
+% General blocks: 
+\setbeamertemplate{blocks}[rounded]
+
+\newenvironment{bash}[1]{
+\setbeamercolor{block body example}{bg=black, fg=white}
+\setbeamertemplate{blocks example}[default]
+\setbeamercolor{block title example}{bg=white}
+\begin{exampleblock}{#1}}{\end{exampleblock}}
+
+% Title page:
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+% Part page:
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+% Navigation symbols:
+\setbeamertemplate{navigation symbols}{}
+
+
+%%%
+%%% Tweak definitions of outer theme to match Radboud (website) style
+%%%
+
+% Background
+% \pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{udesc_background}
+% \setbeamertemplate{background}{\pgfuseimage{bg}}
+
+% Colors
+\usecolortheme[RGB={53, 9, 59}]{structure} % 40, 11, 44
+
+\setbeamercolor{frametitle}{parent=subsection in head/foot}
+\setbeamercolor{frametitle right}{parent=section in head/foot}
+
+
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(frametitle.bg);
+  color(\paperwidth)=(frametitle right.bg)}
+
+\AtBeginDocument{
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+	color(0pt)=(bg);
+	color(4pt)=(black!50!bg)}
+}
+
+% Footline: AUTHOR | DATE | TITLE | FRAMENUMBER
+
+\defbeamertemplate*{footline}{ru theme}{% https://github.com/aldomann/latex-templates/blob/master/Beamer%20Template/ru-theme.sty
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.31\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+	\usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.12\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+	\usebeamerfont{author in head/foot}\insertshortdate
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.486667\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+	\usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+   \begin{beamercolorbox}[wd=0.083333\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+	\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\defbeamertemplate*{headline}{udesc theme}{%
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+	\multiply\@tempdimb by\beamer@sectionmax%
+  \pgfdeclareimage[height=.9\@tempdimb]{logo}{udesc_logo}%
+  \logo{\pgfuseimage{logo}}%
+  \ifdim\@tempdimb>0pt%
+	\advance\@tempdimb by 1.125ex%
+	\begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+	  \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
+	  \vbox to\@tempdimb{\vfil\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.1\paperwidth,ht=\@tempdimb,left]{subsection in head/foot}%
+	  \vbox to\@tempdimb{\vfil\insertlogo\vfil\vfil}%
+	\end{beamercolorbox}%
+  \fi%
+}
+% TODO: Arrumar o tamanho da headline pois sobra um espaço minúsculo entre ela e o fim da página
+\defbeamertemplate*{frametitle}{udesc theme}{%
+  \nointerlineskip%
+  %\vskip-2pt%
+  \hbox{\leavevmode
+	\advance\beamer@leftmargin by -12bp%
+	\advance\beamer@rightmargin by -12bp%
+	\beamer@tempdim=\textwidth%
+	\advance\beamer@tempdim by \beamer@leftmargin%
+	\advance\beamer@tempdim by \beamer@rightmargin%
+	\hskip-\Gm@lmargin\hbox{%
+	  \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+		  \vbox{}\vskip-.75ex%
+		  \leftskip0.3cm%
+		  \rightskip0.3cm plus1fil\leavevmode
+		  \insertframetitle%
+		  \ifx\insertframesubtitle\@empty%
+			\strut\par%
+		  \else
+			\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+		  \fi%
+		  \nointerlineskip
+		  \vbox{}%
+		  \end{minipage}}%
+	  \beamer@tempdim=\ht\beamer@tempbox%
+	  \advance\beamer@tempdim by 2pt%
+	  \begin{pgfpicture}{0.1mm}{0pt}{1.01\paperwidth}{\beamer@tempdim}
+		\usebeamercolor{frametitle right}
+		\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+		\pgfusepath{clip}
+		\pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+	  \end{pgfpicture}
+	  \hskip-\paperwidth%
+	  \box\beamer@tempbox%
+	}%
+	\hskip-\Gm@rmargin%
+  }%
+%  \nointerlineskip
+%    \vskip-0.2pt
+%    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+%    \vskip-2pt
+}
+
+% Apenas seção atual no cabeçalho do slide TODO: Arrumar isso dentro da definição do headline
+\setbeamertemplate{headline}
+{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+	\hbox to .5\paperwidth{\hfil\insertsectionhead\hfil}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+	\hbox to .5\paperwidth{\hfil\insertsubsectionhead\hfil}
+  \end{beamercolorbox}%
+}
