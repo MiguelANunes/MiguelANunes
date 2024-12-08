@@ -1,8 +1,10 @@
 ## Hi, I'm migs
 
-I'm a logician and computer scientist who dabbles in philosophy, mainly philosophy of science and philosophy of computer science.
+I'm a logician (by heart) and computer scientist (by training) who dabbles in philosophy, mainly philosophy of science and philosophy of computer science.
 
-Currently I'm pursuing a Master's Degree in Philosophy at the Institute of Philosophy and Human Sciences of Unicamp, though I spend most of my time at the Center of Logic, Epistemology and History of Science.
+Currently I'm pursuing a Master's Degree in Philosophy at the Institute of Philosophy and Human Sciences of Unicamp, though I spend most of my time at the Center of Logic, Epistemology and History of Science (CLE), and also working on a library of modal logic in Coq (see publications bellow).
+
+I'm a member of the Research Group on Foundations of Computation (Grupo de Pesquisa em Fundamentos da Computação - Função) from the State University of Santa Catarina (Udesc), we are [here in GitHub](https://github.com/funcao) and also on [Instagram](https://www.instagram.com/funcao.udesc/).
 
 I do a lot of stuff with LaTeX, mostly bodges, some stuff with proof assistants, mostly Coq, and little stuff with code, mostly Python and Shell Scripts.
 
