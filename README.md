@@ -17,9 +17,7 @@ Ordered from newest to oldest.
 
 ### Contact
 
-My e-mail and socials should be somewhere around
-
-<--- Here
+<--- My e-mail and socials should be somewhere around there
 
 <!--
 **MiguelANunes/MiguelANunes** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
