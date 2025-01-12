@@ -4,16 +4,16 @@
 %                     Removendo customização de headline
 
 
-% Começando seções no 0
-\makeatletter
-\patchcmd{\beamer@sectionintoc}
-  {\ifnum\beamer@tempcount>0}
-  {\ifnum\beamer@tempcount>-1}
-  {}
-  {}
-\beamer@tocsectionnumber=-1
-\makeatother
-\setcounter{section}{-1}
+% % Começando seções no 0
+% \makeatletter
+% \patchcmd{\beamer@sectionintoc}
+%   {\ifnum\beamer@tempcount>0}
+%   {\ifnum\beamer@tempcount>-1}
+%   {}
+%   {}
+% \beamer@tocsectionnumber=-1
+% \makeatother
+% \setcounter{section}{-1}
 
 % Slide que mostra a nova seção atual quando ela mudo para ela, de modo mais controlado
 \def\SecT{
@@ -41,4 +41,4 @@
 }
 
 % Texto que será apresentado apenas no próximo slide fica transparente ao invés de invisível
-\setbeamercovered{transparent}
+% \setbeamercovered{transparent}
