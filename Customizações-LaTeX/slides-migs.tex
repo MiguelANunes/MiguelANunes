@@ -1,19 +1,7 @@
-% migs.tex: Arquivo que junta todas as coisas (definições, alias, comandos, etc.) de LaTeX/beamer sortidas que são úteis para mim 
+% slides-migs.sty: Arquivo que junta todas as coisas (definições, alias, comandos, etc.) de LaTeX/beamer sortidas que são úteis para mim 
 % Criação: 2024-11-29
-% Última Modificação: 2024-12-06
-%                     Removendo customização de headline
-
-
-% % Começando seções no 0
-% \makeatletter
-% \patchcmd{\beamer@sectionintoc}
-%   {\ifnum\beamer@tempcount>0}
-%   {\ifnum\beamer@tempcount>-1}
-%   {}
-%   {}
-% \beamer@tocsectionnumber=-1
-% \makeatother
-% \setcounter{section}{-1}
+% Última Modificação: 2025-01-12
+%                     Conversão em .sty
 
 % Slide que mostra a nova seção atual quando ela mudo para ela, de modo mais controlado
 \def\SecT{
@@ -24,6 +12,7 @@
     \end{frame}
 }
 
+% Slide que mostra a nova subseção atual quando ela mudo para ela, de modo mais controlado
 \def\SubSecT{
     \begin{frame}
         \centering{\huge\thesection.\thesubsection\ \insertsubsection}
@@ -39,6 +28,3 @@
   \def\smallskip{}%
   \def\medskip{}%
 }
-
-% Texto que será apresentado apenas no próximo slide fica transparente ao invés de invisível
-% \setbeamercovered{transparent}

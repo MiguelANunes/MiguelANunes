@@ -1,0 +1,44 @@
+% slides-migs.tex: Arquivo que junta todas as coisas (definições, alias, comandos, etc.) de LaTeX/beamer sortidas que são úteis para mim 
+% Criação: 2024-11-29
+% Última Modificação: 2024-12-06
+%                     Removendo customização de headline
+
+
+% Começando seções no 0
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+  {\ifnum\beamer@tempcount>0}
+  {\ifnum\beamer@tempcount>-1}
+  {}
+  {}
+\beamer@tocsectionnumber=-1
+\makeatother
+\setcounter{section}{-1}
+
+% Slide que mostra a nova seção atual quando ela mudo para ela, de modo mais controlado
+\def\SecT{
+    \begin{frame}
+        \centering{\huge\thesection. \insertsection}
+
+        \vspace{\baselineskip}
+    \end{frame}
+}
+
+\def\SubSecT{
+    \begin{frame}
+        \centering{\huge\thesection.\thesubsection\ \insertsubsection}
+
+        \vspace{\baselineskip}
+    \end{frame}
+}
+
+% Suprimindo warnings do hyperref
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{#1}%
+  \def\smallskip{}%
+  \def\medskip{}%
+}
+
+% Texto que será apresentado apenas no próximo slide fica transparente ao invés de invisível
+\setbeamercovered{transparent}
