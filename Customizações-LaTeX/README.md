@@ -17,7 +17,5 @@ Com o decorrer do tempo, irei adicionando mais coisas e melhorando as coisas já
 
 ## TODOs
 
-[ ] Adicionar template para artigos em português
-[ ] Adicionar template para artigos em inglês
 [ ] Adicionar template para slides em português
 [ ] Adicionar template para slides em inglês

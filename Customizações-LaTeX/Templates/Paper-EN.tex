@@ -1,0 +1,69 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[numbers]{natbib}
+    % Formatação de citações
+    % FIXME: Substituir você pelo pacote apropriado de citações para o trabalho em questão
+\usepackage[hidelinks]{hyperref}
+    % Suporte para hypertext (sem bordas ao redor de links)
+\usepackage[T1]{fontenc}
+	% Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}
+	% Codificação do documento (conversão automática dos acentos)
+\usepackage[english]{babel}
+	% Tipografia em vários idiomas
+\usepackage[numbib]{tocbibind}
+    % Seção de Referências é enumerada e aparece no índice
+\usepackage{enumitem}
+    % Customização de listas
+\usepackage{xspace}
+	% Espaçamento condicional, necessário para meu pacote
+\usepackage{xcolor}
+	% Cores independente de drivers
+\usepackage{listings}
+    % Formatação de código fonte
+\usepackage{bussproofs}
+	% Provas em estilo de árvore
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+	% Comandos e definições matemáticas
+\usepackage{graphicx}
+	% Melhorias em imagens e gráficos
+\usepackage{migs}
+	% Meu pacote de customizações
+\usepackage{datetime2}
+	% Datas bem formatadas
+\usepackage[colorinlistoftodos,textsize=small]{todonotes}
+	% TODOs dentro do pdf gerado
+
+\setlength{\marginparwidth}{2cm}
+	% Necessário para a boa formatação do todonotes
+	% FIXME: Remover esse comando e o pacotes todonotes antes de qualquer versão final desse artigo
+
+
+\title{Title}
+
+\author{Miguel Alfredo Nunes \\ \small{\texttt{miguel.alfredo.nunes@gmail.com}}}
+
+% Opcinalmente inserir aqui a data
+\date{}
+
+\begin{document}
+
+	\maketitle
+
+	\begin{abstract}
+		Abstract
+	\end{abstract}
+
+	\section{Introduction}
+		\label{sec:introduction}
+		Introduction
+
+	\section{Conclusion}
+		\label{sec:conclusion}
+		Conclusion
+
+	% Adicionar um estilo de bibliografia se for o caso
+	% \bibliographystyle{}
+	\bibliography{referencias}
+
+\end{document}
