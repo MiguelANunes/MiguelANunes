@@ -10,12 +10,9 @@ Nesses arquivos agrego todas as customizações para LaTeX que fiz no decorrer d
 - Tema de formatação de source code de Coq: lstCoq.sty
 - Makefile genérico para LaTeX: Makefile
 - Template de .gitignore para LaTeX: latex.gitignore
+- Template para artigos em português e inglês: Paper-PT_BR.tex e Paper-EN.tex
+- Template para slides em português e inglês: Slides-PT_BR.tex e Slides-EN.tex
 - Script para upar uma pasta para o git rapidamente: Git.sh
 - Conversor de LaTeX para docx com Pandoc: LateX2Docx.sh
 
 Com o decorrer do tempo, irei adicionando mais coisas e melhorando as coisas já existentes.
-
-## TODOs
-
-[ ] Adicionar template para slides em português
-[ ] Adicionar template para slides em inglês

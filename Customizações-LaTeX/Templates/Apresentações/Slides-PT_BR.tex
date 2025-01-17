@@ -1,0 +1,95 @@
+\documentclass{beamer}
+
+\usepackage[hidelinks]{hyperref}
+    % Suporte para hypertext (sem bordas ao redor de links), deve ser carregado antes do abntex2cite
+\usepackage[alf,abnt-emphasize=bf,abnt-full-initials=yes]{abntex2cite}
+	% Citações formato ABNT
+\usepackage[T1]{fontenc}
+	% Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}
+	% Codificação do documento (conversão automática dos acentos)
+\usepackage[brazil]{babel}
+	% Tipografia em vários idiomas
+\usepackage{migs-theme}
+    % Meu tema de slides
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+	% Comandos e definições matemáticas
+\usepackage{xspace}
+	% Espaçamento condicional, necessário para meu pacote
+\usepackage{xcolor}
+	% Cores independente de drivers
+\usepackage{listings}
+    % Formatação de código fonte
+\usepackage{bussproofs}
+	% Provas em estilo de árvore
+\usepackage{datetime2}
+	% Datas bem formatadas
+\usepackage{graphicx}
+	% Melhorias em imagens e gráficos
+\usepackage[ABNTeX, PTthm]{migs}
+	% Meu pacote de customizações
+\usepackage{migs-beamer}
+	% Meu pacote de customizações para slides
+
+\title{Título}
+
+\author{Miguel Alfredo Nunes \\ \small{\texttt{miguel.alfredo.nunes@gmail.com}}}
+
+% Opcinalmente inserir aqui a data
+\date{}
+
+\logo{\includegraphics[scale=.05,keepaspectratio]{logo.png}}
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \begin{frame}{Sumário}
+        \tableofcontents
+    \end{frame}
+
+    \section{Introdução}
+    \label{sec:introducao}
+        
+        \SecT
+        \input{Seções/Intro.tex}
+
+    \section{Conclusão}
+        \label{sec:conclusao}
+
+        \SecT
+
+        \input{Seções/Conclusao.tex}
+
+    \section{Referências}
+        \label{sec:referencias}
+
+        \SecT
+
+        \begin{frame}[allowframebreaks]
+            \frametitle{Referências}
+
+            % Adicionar um estilo de bibliografia se for o caso
+            % \bibliographystyle{}
+            \bibliography{referencias}
+            
+        \end{frame}
+
+    \section*{}
+    \begin{frame}{}
+
+        \begin{center}
+            {\Huge Thanks}
+            
+            \vspace{\baselineskip}
+
+            \vspace{\baselineskip}
+            
+            \insertauthor
+        \end{center}
+        
+    \end{frame}
+
+\end{document}
