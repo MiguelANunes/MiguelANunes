@@ -3,8 +3,8 @@
 
 % Criação: 2024-02-29
 
-% Última Modificação: 2025-01-10
-%                     Convertendo para .sty, adicionando ambiente de prova por parte e casos 
+% Última Modificação: 2025-01-22
+%                     Corrigindo condicionais
 
 % Preambulo
 \NeedsTeXFormat{LaTeX2e}
@@ -27,9 +27,9 @@
 
 % Opções do Pacote
 
-    \DeclareOption{ABNTeX}{\@useciteshorttrue} % Opção para usar o citeshort caso esteja usando o ABNTeX
-    \DeclareOption{BMfix}{\@bmfixtrue}         % Opção para arrumar a fonte matemática caso esteja usando o pacote bm
-    \DeclareOption{PTthm}{\@ptthmtrue}         % Opção para usar termos em português para teoremas/lemas/etc.
+    \DeclareOption{abntex}{\@useciteshorttrue} % Opção para usar o citeshort caso esteja usando o ABNTeX
+    \DeclareOption{bm}{\@bmfixtrue}         % Opção para arrumar a fonte matemática caso esteja usando o pacote bm
+    \DeclareOption{ptthm}{\@ptthmtrue}         % Opção para usar termos em português para teoremas/lemas/etc.
 
     \ProcessOptions\relax
 
@@ -56,7 +56,7 @@
             \newcommand{\RefSubCaso}[2]{\ref{#1}.\ref{#2}}
             % (Para trecho das forma X.Y, basta usar \ref)
 
-        \if\@useciteshorttrue
+        \if@useciteshort
 
             % Caso esteja usando o ABNTeX, carrego o pacote e faço o citeshort bonito
             \RequirePackage[alf,abnt-emphasize=bf,abnt-full-initials=yes]{abntex2cite} % Citações padrão ABNT
@@ -78,7 +78,7 @@
             \newcommand{\me}{Elaborado pelo autor.}
         \fi
 
-        \if\@bmfixfalse
+        \if@bmfix
             
             % Corrigindo mudança na fonte caligráfica causada pelo pacote bm
             \RequirePackage{bm} % Negrito em modo matemático
@@ -164,7 +164,7 @@
 
     %% Estilos de Teoremas 
     
-        \if \@ptthmtrue
+        \if@ptthm
             % Estilo padrão, i.e., texto itálico
             \newtheorem{teorema}       {Teorema}
             \newtheorem*{teorema*}     {Teorema}
