@@ -1,0 +1,394 @@
+{
+  "deps": [],
+  "macros": [
+    {
+      "name": "me"
+    },
+    {
+      "name": "migs",
+      "arg": {
+        "format": "{}",
+        "snippet": "migs{${1:comentario}}"
+      }
+    },
+    {
+      "name": "cortar",
+      "arg": {
+        "format": "{}",
+        "snippet": "cortar{${1:comentario}}"
+      }
+    },
+    {
+      "name": "ignore",
+      "arg": {
+        "format": "{}",
+        "snippet": "ignore{${1:comentario}}"
+      }
+    },
+    {
+      "name": "citeshort",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "citeshort[${2:pagina}]{${1:citacao}}"
+      }
+    },
+    {
+      "name": "RefSubCaso",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "RefSubCaso{${1:label1}}{${2:label2}}"
+      }
+    },
+    {
+      "name": "parte",
+      "arg": {
+        "format": "{}",
+        "snippet": "parte{${1:texto}}"
+      }
+    },
+    {
+      "name": "casodeprova",
+      "arg": {
+        "format": "{}",
+        "snippet": "casodeprova{${1:texto}}"
+      }
+    },
+    {
+      "name": "subcasodeprova",
+      "arg": {
+        "format": "{}",
+        "snippet": "subcasodeprova{${1:texto}}"
+      }
+    },
+    {
+      "name": "subsubcasodeprova",
+      "arg": {
+        "format": "{}",
+        "snippet": "subsubcasodeprova{${1:texto}}"
+      }
+    },
+    {
+      "name": "Mathfrak",
+      "arg": {
+        "format": "{}",
+        "snippet": "Mathfrak{${1:simbolo}}"
+      }
+    },
+    {
+      "name": "Mathfraki",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "Mathfraki{${1:simbolo}}{${2:subscrito}}"
+      }
+    },
+    {
+      "name": "MathfrakI",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "MathfrakI{${1:simbolo}}{${2:superescrito}}"
+      }
+    },
+    {
+      "name": "MathfrakIi",
+      "arg": {
+        "format": "{}{}{}",
+        "snippet": "MathfrakIi{${1:simbolo}}{${2:subscrito}}{${3:superescrito}}"
+      }
+    },
+    {
+      "name": "Mathbb",
+      "arg": {
+        "format": "{}",
+        "snippet": "Mathbb{${1:simbolo}}"
+      }
+    },
+    {
+      "name": "Mathbbi",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "Mathbbi{${1:simbolo}}{${2:subscrito}}"
+      }
+    },
+    {
+      "name": "MathbbI",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "MathbbI{${1:simbolo}}{${2:superescrito}}"
+      }
+    },
+    {
+      "name": "MathbbIi",
+      "arg": {
+        "format": "{}{}{}",
+        "snippet": "MathbbIi{${1:simbolo}}{${2:subscrito}}{${3:superescrito}}"
+      }
+    },
+    {
+      "name": "Mathcal",
+      "arg": {
+        "format": "{}",
+        "snippet": "Mathcal{${1:simbolo}}"
+      }
+    },
+    {
+      "name": "Mathcali",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "Mathcali{${1:simbolo}}{${2:subscrito}}"
+      }
+    },
+    {
+      "name": "MathcalI",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "MathcalI{${1:simbolo}}{${2:superescrito}}"
+      }
+    },
+    {
+      "name": "MathcalIi",
+      "arg": {
+        "format": "{}{}{}",
+        "snippet": "MathcalIi{${1:simbolo}}{${2:subscrito}}{${3:superescrito}}"
+      }
+    },
+    {
+      "name": "tofrom"
+    },
+    {
+      "name": "eqdef",
+      "detail": "≝",
+      "doc": "Equals by definition"
+    },
+    {
+      "name": "VDASH"
+    },
+    {
+      "name": "VDDASH"
+    },
+    {
+      "name": "VVDASH"
+    },
+    {
+      "name": "uglyphi"
+    },
+    {
+      "name": "uglyepsilon"
+    },
+    {
+      "name": "BOX"
+    },
+    {
+      "name": "BOXi",
+      "arg": {
+        "format": "{}",
+        "snippet": "BOXi{${1:subscrito}}"
+      }
+    },
+    {
+      "name": "DIA"
+    },
+    {
+      "name": "DIAi",
+      "arg": {
+        "format": "{}",
+        "snippet": "DIAi{${1:subscrito}}"
+      }
+    },
+    {
+      "name": "PHI"
+    },
+    {
+      "name": "PI"
+    },
+    {
+      "name": "PSI"
+    },
+    {
+      "name": "ALPHA"
+    },
+    {
+      "name": "SIGMA"
+    },
+    {
+      "name": "GAMMA"
+    },
+    {
+      "name": "BETA"
+    },
+    {
+      "name": "THETA"
+    },
+    {
+      "name": "DELTA"
+    },
+    {
+      "name": "LAMBDA"
+    },
+    {
+      "name": "ULAMBDA"
+    },
+    {
+      "name": "UTHETA"
+    },
+    {
+      "name": "UDELTA"
+    },
+    {
+      "name": "USIGMA"
+    },
+    {
+      "name": "UGAMMA"
+    },
+    {
+      "name": "Oplus"
+    },
+    {
+      "name": "Odot"
+    },
+    {
+      "name": "Otimes",
+      "detail": "⨷",
+      "doc": "Multiplication sign in double circle"
+    },
+    {
+      "name": "OMINUS"
+    },
+    {
+      "name": "ODOT"
+    },
+    {
+      "name": "OPLUS"
+    },
+    {
+      "name": "OTIMES"
+    }
+  ],
+  "envs": [
+    {
+      "name": "provaempartes"
+    },
+    {
+      "name": "provaporcasos"
+    },
+    {
+      "name": "provaporsubcasos"
+    },
+    {
+      "name": "provaporsubsubcasos"
+    },
+    {
+      "name": "teorema",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "lema",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "proposicao",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "corolario",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "exemplo",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "definicao",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "observacao",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "fato",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "teorema*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "lema*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "proposicao*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "corolario*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "exemplo*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "definicao*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "observacao*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    },
+    {
+      "name": "fato*",
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:Texto}]"
+      }
+    }
+  ],
+  "keys": {},
+  "args": []
+}

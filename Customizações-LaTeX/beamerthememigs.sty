@@ -109,18 +109,13 @@
   \leavevmode%
   \@tempdimb=2.4375ex%
     \multiply\@tempdimb by\beamer@sectionmax%
-  \logo{\pgfuseimage{logo}}%
   \ifdim\@tempdimb>0pt%
     \advance\@tempdimb by 1.125ex%
-    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
-      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+      \vfil \hbox to .5\paperwidth{\hfil\insertsectionhead\hfil} \vfil %
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
-      %\vbox to\@tempdimb{\vfil\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
-      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.5\paperwidth}\vfil}%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.1\paperwidth,ht=\@tempdimb,left]{subsection in head/foot}%
-      \vbox to\@tempdimb{\vfil\insertlogo\vfil\vfil}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,right]{subsection in head/foot}%
+      \vfil \hbox to .5\paperwidth{\hfil\insertsubsectionhead\hfil} \vfil%
     \end{beamercolorbox}%
   \fi%
 }
@@ -128,6 +123,7 @@
 \defbeamertemplate*{frametitle}{migs theme}
 {%
   \nointerlineskip%
+  \logo{\pgfuseimage{logo}}%
   \vskip-2pt%
   \hbox{\leavevmode
     \advance\beamer@leftmargin by -12bp%
@@ -181,3 +177,32 @@
   {}
 \beamer@tocsectionnumber=-1
 \setcounter{section}{-1}
+
+% Slide que mostra a nova seção atual quando ela mudo para ela, de modo mais controlado
+\def\SecT{
+    \begin{frame}
+        \centering{\huge\thesection. \insertsection}
+
+        \vspace{\baselineskip}
+    \end{frame}
+}
+
+% Slide que mostra a nova subseção atual quando ela mudo para ela, de modo mais controlado
+\def\SubSecT{
+    \begin{frame}
+        \centering{\huge\thesection.\thesubsection\ \insertsubsection}
+
+        \vspace{\baselineskip}
+    \end{frame}
+}
+
+% Suprimindo warnings do hyperref
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{#1}%
+  \def\smallskip{}%
+  \def\medskip{}%
+}
+
+% Caso um slide seja quebrado com framebreak, isso evita que os novos slides tenham um número sequencial ao final
+\setbeamertemplate{frametitle continuation}{}
