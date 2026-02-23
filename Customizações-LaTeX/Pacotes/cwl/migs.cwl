@@ -3,13 +3,21 @@
 \migs{comentario}
 \cortar{comentario}
 \ignore{comentario}
-\citeshort[pagina]{citacao}
+\citeshort{citekey}
+\citeshort[pagina]{citekey}
 
 \RefSubCaso{label1}{label2}
 \parte{texto}
 \casodeprova{texto}
 \subcasodeprova{texto}
 \subsubcasodeprova{texto}
+
+\baseinducao
+\baseinducao[texto]
+\hipinducao
+\hipinducao[texto]
+\passoinducao
+\passoinducao[texto]
 
 \Mathfrak{simbolo}
 \Mathfraki{simbolo}{subscrito}
@@ -28,10 +36,28 @@
 
 \tofrom
 \eqdef
+\tq
+\loongrightarrow
+\sneg
+\consist
+\inconsist
+
+\mor
+\id
+\comp
+\comppp
+\functor
+
+\MOR
+\ID
+\COMP
+\COMPPP
+\FUNCTOR
 
 \VDASH
 \VDDASH
 \VVDASH
+\DASHV
 
 \uglyphi
 \uglyepsilon
@@ -51,12 +77,16 @@
 \THETA
 \DELTA
 \LAMBDA
+\EPSILON
+\TAU
+\UGLYPHI
 
 \ULAMBDA
 \UTHETA
 \UDELTA
 \USIGMA
 \UGAMMA
+\UXI
 
 \Oplus
 \Odot
@@ -75,6 +105,8 @@
 \end{provaporsubcasos}
 \begin{provaporsubsubcasos}
 \end{provaporsubsubcasos}
+\begin{inducao}
+\end{inducao}
 
 \begin{teorema}
 \end{teorema}

@@ -28,8 +28,15 @@
     {
       "name": "citeshort",
       "arg": {
+        "format": "{}",
+        "snippet": "citeshort{${1:citekey}}"
+      }
+    },
+    {
+      "name": "citeshort",
+      "arg": {
         "format": "[]{}",
-        "snippet": "citeshort[${2:pagina}]{${1:citacao}}"
+        "snippet": "citeshort[${2:pagina}]{${1:citekey}}"
       }
     },
     {
@@ -65,6 +72,36 @@
       "arg": {
         "format": "{}",
         "snippet": "subsubcasodeprova{${1:texto}}"
+      }
+    },
+    {
+      "name": "baseinducao"
+    },
+    {
+      "name": "baseinducao",
+      "arg": {
+        "format": "[]",
+        "snippet": "baseinducao[${1:texto}]"
+      }
+    },
+    {
+      "name": "hipinducao"
+    },
+    {
+      "name": "hipinducao",
+      "arg": {
+        "format": "[]",
+        "snippet": "hipinducao[${1:texto}]"
+      }
+    },
+    {
+      "name": "passoinducao"
+    },
+    {
+      "name": "passoinducao",
+      "arg": {
+        "format": "[]",
+        "snippet": "passoinducao[${1:texto}]"
       }
     },
     {
@@ -160,6 +197,51 @@
       "doc": "Equals by definition"
     },
     {
+      "name": "tq"
+    },
+    {
+      "name": "loongrightarrow"
+    },
+    {
+      "name": "sneg"
+    },
+    {
+      "name": "consist"
+    },
+    {
+      "name": "inconsist"
+    },
+    {
+      "name": "mor"
+    },
+    {
+      "name": "id"
+    },
+    {
+      "name": "comp"
+    },
+    {
+      "name": "comppp"
+    },
+    {
+      "name": "functor"
+    },
+    {
+      "name": "MOR"
+    },
+    {
+      "name": "ID"
+    },
+    {
+      "name": "COMP"
+    },
+    {
+      "name": "COMPPP"
+    },
+    {
+      "name": "FUNCTOR"
+    },
+    {
       "name": "VDASH"
     },
     {
@@ -167,6 +249,9 @@
     },
     {
       "name": "VVDASH"
+    },
+    {
+      "name": "DASHV"
     },
     {
       "name": "uglyphi"
@@ -225,6 +310,15 @@
       "name": "LAMBDA"
     },
     {
+      "name": "EPSILON"
+    },
+    {
+      "name": "TAU"
+    },
+    {
+      "name": "UGLYPHI"
+    },
+    {
       "name": "ULAMBDA"
     },
     {
@@ -238,6 +332,9 @@
     },
     {
       "name": "UGAMMA"
+    },
+    {
+      "name": "UXI"
     },
     {
       "name": "Oplus"
@@ -277,116 +374,55 @@
       "name": "provaporsubsubcasos"
     },
     {
-      "name": "teorema",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "inducao"
     },
     {
-      "name": "lema",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "teorema"
     },
     {
-      "name": "proposicao",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "lema"
     },
     {
-      "name": "corolario",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "proposicao"
     },
     {
-      "name": "exemplo",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "corolario"
     },
     {
-      "name": "definicao",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "exemplo"
     },
     {
-      "name": "observacao",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "definicao"
     },
     {
-      "name": "fato",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "observacao"
     },
     {
-      "name": "teorema*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "fato"
     },
     {
-      "name": "lema*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "teorema*"
     },
     {
-      "name": "proposicao*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "lema*"
     },
     {
-      "name": "corolario*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "proposicao*"
     },
     {
-      "name": "exemplo*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "corolario*"
     },
     {
-      "name": "definicao*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "exemplo*"
     },
     {
-      "name": "observacao*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "definicao*"
     },
     {
-      "name": "fato*",
-      "arg": {
-        "format": "[]",
-        "snippet": "[${1:Texto}]"
-      }
+      "name": "observacao*"
+    },
+    {
+      "name": "fato*"
     }
   ],
   "keys": {},
